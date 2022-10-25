@@ -1,0 +1,17 @@
+[package]
+name = "quick_roll"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+owo-colors = "3"
+getrandom = "0.2"
+
+# cargo +nightly build -Z build-std=std,panic_abort --target x86_64-pc-windows-msvc --release
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
